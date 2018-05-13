@@ -1,3 +1,9 @@
+# For start
+
+1. open cmd in myApp and run: node server
+
+2. run: ng serve --open
+
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
