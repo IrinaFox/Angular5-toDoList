@@ -1,0 +1,17 @@
+[
+  {
+	    "name": "In progress",
+	    "color": "blue",
+	    "id": 1
+	},
+	{
+	    "name": "Done",
+	    "color": "green",
+	    "id": 2
+	},
+	{
+	    "name": "Waiting",
+	    "color": "yellow",
+	    "id": 3
+	}
+]
