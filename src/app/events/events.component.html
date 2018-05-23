@@ -1,4 +1,38 @@
 <div class="row">
+  <input type="button" class="btn" data-toggle="modal" data-target="#creationNewEvent" value="+">
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="creationNewEvent">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Create new task</h4>
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <label class="row">Name:
+          <input type="text" [(ngModel)]="newEvent.name">
+        </label>
+        <label class="row">Status:
+          <input type="text" [(ngModel)]="newEvent.status">
+        </label>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <input type="button" class="btn" value="Save" (click)="createEvent()" data-dismiss="modal">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <table class="table table-dark table-striped table-hover">
     <thead>
       <tr>

@@ -14,4 +14,12 @@ export class EventsService {
   getEvents(): Observable<any> {
     return this.http.get('http://localhost:8888/events');
   }
+
+  saveEvent(event: Event): Observable<any> {
+    return this.http.post('http://localhost:8888/events', event);
+  }
+
+  getEmptyEvent(): Event {
+    return new Event();
+  }
 }

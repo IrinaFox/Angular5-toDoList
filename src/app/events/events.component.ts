@@ -9,10 +9,14 @@ import { EventsService } from './events.service';
 })
 export class EventsComponent implements OnInit {
   events: Event[];
+  newEvent: Event;
+
   constructor(private eventsService: EventsService) { }
 
   ngOnInit() {
     this.getEvents();
+
+    this.newEvent = this.eventsService.getEmptyEvent();
   }
 
   getEvents() {
@@ -20,5 +24,13 @@ export class EventsComponent implements OnInit {
       this.events = data;
     },
     error => console.log(error));
+  }
+
+  createEvent() {
+    this.eventsService.saveEvent(this.newEvent).subscribe(
+      event => this.events.push(event),
+      error => console.log(error));
+
+    this.newEvent = this.eventsService.getEmptyEvent();
   }
 }
