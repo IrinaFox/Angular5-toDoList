@@ -33,4 +33,10 @@ export class EventsComponent implements OnInit {
 
     this.newEvent = this.eventsService.getEmptyEvent();
   }
+
+  deleteEvent(_id: any) {
+    this.eventsService.deleteEvent(_id).subscribe(
+      event => this.getEvents(),
+      error => console.log(error));
+  }
 }

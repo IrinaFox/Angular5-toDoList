@@ -1,6 +1,6 @@
 export class Event {
   _id: any;
   name: string;
-  date: string;
+  date: any;
   status: string;
 }

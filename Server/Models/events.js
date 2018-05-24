@@ -26,16 +26,28 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-    const newEvent = new Event({
-      name: req.body.name,
-      status: req.body.status,
-      date: new Date()
-    });
+  const newEvent = new Event({
+    name: req.body.name,
+    status: req.body.status,
+    date: createDate()
+  });
 
-    newEvent.save(function (err) {
-        if (err) return console.error(err);
-        res.send(newEvent);
-    });
+  newEvent.save(function (err) {
+    if (err) return console.error(err);
+    res.send(newEvent);
+  });
 });
+
+router.delete('/:_id', function(req, res) {
+  Event.deleteOne({_id: req.params._id}, function () {
+    res.send({success: true});
+  });
+});
+
+function createDate () {
+  let currentDate = new Date();
+
+  return currentDate.getDate() + '/' + currentDate.getMonth() + '/' + currentDate.getFullYear();
+}
 
 module.exports = router;

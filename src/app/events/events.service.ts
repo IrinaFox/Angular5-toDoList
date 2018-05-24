@@ -19,6 +19,10 @@ export class EventsService {
     return this.http.post('http://localhost:8888/events', event);
   }
 
+  deleteEvent(_id: any): Observable<any> {
+    return this.http.delete(`http://localhost:8888/events/${_id}`);
+  }
+
   getEmptyEvent(): Event {
     return new Event();
   }
