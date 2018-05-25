@@ -26,16 +26,21 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-  const newEvent = new Event({
-    name: req.body.name,
-    status: req.body.status,
-    date: createDate()
-  });
+  if (!req.body._id) {
+    const newEvent = new Event({
+      name: req.body.name,
+      status: 'waiting',
+      date: createDate()
+    });
 
-  newEvent.save(function (err) {
-    if (err) return console.error(err);
-    res.send(newEvent);
-  });
+    newEvent.save(function (err) {
+      if (err) return console.error(err);
+      res.send(newEvent);
+    });
+  } else {
+    Event.update({_id: req.body._id}, { $set: {status: req.body.status}},
+      () => { res.send({success: true}); });
+  }
 });
 
 router.delete('/:_id', function(req, res) {

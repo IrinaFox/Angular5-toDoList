@@ -39,4 +39,11 @@ export class EventsComponent implements OnInit {
       event => this.getEvents(),
       error => console.log(error));
   }
+
+  makeEventDone(e: Event) {
+    e.status = 'done';
+    this.eventsService.saveEvent(e).subscribe(
+      event => this.getEvents(),
+      error => console.log(error));
+  }
 }

@@ -18,9 +18,6 @@
         <label class="row">Name:
           <input type="text" [(ngModel)]="newEvent.name">
         </label>
-        <label class="row">Status:
-          <input type="text" [(ngModel)]="newEvent.status">
-        </label>
       </div>
 
       <!-- Modal footer -->
@@ -39,6 +36,8 @@
         <th>Name</th>
         <th>Status</th>
         <th>Date</th>
+        <th>Delete</th>
+        <th>Done</th>
       </tr>
     </thead>
     <tbody>
@@ -47,6 +46,8 @@
         <td>{{event.status}}</td>
         <td>{{event.date}}</td>
         <td><img src="../../assets/images/delete1.png" alt="delete" (click)="deleteEvent(event._id)" ></td>
+        <td><button type="button" class="btn btn-success"
+                    (click)="makeEventDone(event)" [disabled]='event.status === "done"'>Done</button></td>
       </tr>
     </tbody>
   </table>
